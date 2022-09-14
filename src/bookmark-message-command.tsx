@@ -71,7 +71,7 @@ export function bookmarkMessageCommand(): MessageCommandHandler<Env> {
         try {
             await call("POST", `/channels/${dmCreationResult.id}/messages`, dmMessageParams, {bot: env.BOT_TOKEN})
         } catch (err: any) {
-            if (err.code === 50007) {
+            if (err.code === 50007 || err.code === 403) {
                 return <Message ephemeral>
                     It seems like I can't send you DMs! Check your privacy settings for this server or open up a DM with me manually.
                 </Message>;
