@@ -1,0 +1,17 @@
+name = "bookmark-discord-command"
+type = "javascript"
+
+route = "discord-bookmark.felixoi.com/*"
+workers_dev = false
+
+compatibility_date = "2022-04-05"
+compatibility_flags = []
+
+[build]
+command = "node scripts/build.js production"
+[build.upload]
+format = "modules"
+main = "./index.mjs"
+
+[miniflare]
+global_async_io = true

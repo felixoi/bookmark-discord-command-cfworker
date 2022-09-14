@@ -1,0 +1,21 @@
+{
+  "name": "bookmark-discord-command-cfworker",
+  "version": "1.0.0",
+  "type": "module",
+  "module": "dist/index.mjs",
+  "private": true,
+  "scripts": {
+    "dev": "miniflare --watch --debug --wrangler-env=development",
+    "deploy:global": "node --no-warnings --experimental-vm-modules scripts/deploy.js"
+  },
+  "dependencies": {
+    "slshx": "^0.3.0"
+  },
+  "devDependencies": {
+    "@cfworker/sentry": "^1.12.1",
+    "@cloudflare/workers-types": "^3.4.0",
+    "discord-api-types": "^0.37.9",
+    "esbuild": "^0.14.23",
+    "miniflare": "^2.3.0"
+  }
+}
