@@ -9,9 +9,9 @@ export function bookmarkMessageCommand(): MessageCommandHandler<Env> {
     const buttonId = useButton(async function(interaction, env: Env, ctx) {
         try {
             await call("DELETE", `/channels/${interaction.message.channel_id}/messages/${interaction.message.id}`, {}, {bot: env.BOT_TOKEN})
-        } catch (err) {
+        } catch (err: any) {
             return <Message ephemeral>
-                Something went wrong! (Code 5)
+                Something went wrong! (5.({err.code}))
             </Message>;
         }
 
@@ -30,9 +30,9 @@ export function bookmarkMessageCommand(): MessageCommandHandler<Env> {
 
         try {
             dmCreationResult = await call("POST", "/users/@me/channels", dmCreationParams, {bot: env.BOT_TOKEN})
-        } catch (err) {
+        } catch (err: any) {
             return <Message ephemeral>
-                Something went wrong! (Code 3)
+                Something went wrong! (3.({err.code}))
             </Message>;
         }
 
@@ -78,7 +78,7 @@ export function bookmarkMessageCommand(): MessageCommandHandler<Env> {
             }
 
             return <Message ephemeral>
-                Something went wrong! (Code 4)
+                Something went wrong! (4.{err.code})
             </Message>;
         }
 
